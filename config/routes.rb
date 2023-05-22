@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "new", to: "pages#new"
   post "score", to:"pages#score"
+  # get "score", to:"pages#score"
 end

@@ -1,13 +1,15 @@
 <div class="container">
   <h1 class="display-4">Result</h1>
-  <%= @attempt %>
+  <p>Your guess: <%= @attempt %>. The grid: <%= @letters %>.</p>
   <h1 class="display-6">Here is your result:</h1>
-  <% if @attempt == "I am going to work" %>
-  <p>Great, your score is <%= @score %>!</p>
-  <% elsif @attempt.include? '?' %>
+  <% if @is_in_grid && @is_english_word %>
+  <p>Great, your word is in the grid and an english word!</p>
+  <% elsif !@is_english_word  %>
+  <p>Sorry but <%= @attempt %> does not seem to be a valid English word.</p>
+  <% elsif @in_the_grid  %>
   <p>Sorry but <%= @attempt %> cannot be built from <%= @letters %>.</p>
   <% else %>
-  <p>Sorry but <%= @attempt %> does not seem to be a valid English word.</p>
+  <p>Sorry but <%= @attempt %> does not seem to be in the grid or a valid English word.</p>
   <% end %>
   <a href="new">Play again!</a>
 </div>
