@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="display-4">Hello, let's play a game:</h1>
+  <p><%= @letters.each do |letter|
+  letter
+  end %></p>
+  <form action="answer" data-turbo="false">
+    <div class="mb-3">
+      <input type="text" name="question" class="form-control">
+      <input type="submit" value="Submit attempt!" class="btn btn-primary">
+    </div>
+  </form>
+</div>

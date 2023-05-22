@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="display-4">Result</h1>
+  <%= @attempt %>
+  <h1 class="display-6">Here is your result:</h1>
+  <% if @attempt == "I am going to work" %>
+  <p>Great, your score is <%= @score %>!</p>
+  <% elsif @attempt.include? '?' %>
+  <p>Sorry but <%= @attempt %> cannot be built from <%= @letters %>.</p>
+  <% else %>
+  <p>Sorry but <%= @attempt %> does not seem to be a valid English word.</p>
+  <% end %>
+  <a href="new">Play again!</a>
+</div>
