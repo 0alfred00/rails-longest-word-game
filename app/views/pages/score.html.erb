@@ -2,14 +2,16 @@
   <h1 class="display-4">Result</h1>
   <p>Your guess: <%= @attempt %>. The grid: <%= @grid.join(" ") %>.</p>
   <h1 class="display-6">Here is your result:</h1>
-  <% if @is_in_grid && @is_english_word %>
-  <p>Great, your word is in the grid and an english word!</p>
-  <% elsif !@is_english_word  %>
-  <p>Sorry but <%= @attempt %> does not seem to be a valid English word.</p>
-  <% elsif @in_the_grid  %>
-  <p>Sorry but <%= @attempt %> cannot be built from <%= @letters %>.</p>
+  <%# 2nd attempt %>
+  <% if @is_in_grid %>
+    <% if @is_english_word %>
+      <p>Great, your word is in the grid and an english word!</p>
+    <% else %>
+      <p>Sorry, while <%= @attempt %> is in the grid, it is not a valid English word.</p>
+    <% end %>
   <% else %>
-  <p>Sorry but <%= @attempt %> does not seem to be in the grid or a valid English word.</p>
+    Sorry but <%= @attempt %> cannot be built from <%= @grid.join(" ") %>.
   <% end %>
-  <a href="new">Play again!</a>
+  <br>
+  <%= link_to "Play again!", new_path %>
 </div>

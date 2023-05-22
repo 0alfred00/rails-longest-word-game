@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   def score
     # raise
     @grid = params[:letters].split
-    @attempt = params[:attempt]
+    @attempt = params[:attempt].upcase
     @is_english_word = english_word?
     @is_in_grid = included?
   end
