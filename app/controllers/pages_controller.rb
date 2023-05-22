@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def included?
-    @attempt.chars.all? { |letter| @attempt.count(letter) <= @letters.count(letter) }
+    @attempt.chars.all? { |letter| @attempt.count(letter) <= @grid.count(letter) }
   end
 
   # page methods
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
 
   def score
     # raise
-    @score = 'score' # tbd
+    @grid = params[:letters].split
     @attempt = params[:attempt]
     @is_english_word = english_word?
     @is_in_grid = included?
